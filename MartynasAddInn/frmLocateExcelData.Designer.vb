@@ -24,7 +24,7 @@ Partial Class frmLocateExcelData
     Private Sub InitializeComponent()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.chkHeader = New System.Windows.Forms.CheckBox()
         Me.btnImport = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.SuspendLayout()
@@ -45,15 +45,15 @@ Partial Class frmLocateExcelData
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Where is the data?"
         '
-        'CheckBox1
+        'chkHeader
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(23, 57)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(61, 17)
-        Me.CheckBox1.TabIndex = 3
-        Me.CheckBox1.Text = "Header"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.chkHeader.AutoSize = True
+        Me.chkHeader.Location = New System.Drawing.Point(23, 57)
+        Me.chkHeader.Name = "chkHeader"
+        Me.chkHeader.Size = New System.Drawing.Size(61, 17)
+        Me.chkHeader.TabIndex = 3
+        Me.chkHeader.Text = "Header"
+        Me.chkHeader.UseVisualStyleBackColor = True
         '
         'btnImport
         '
@@ -80,12 +80,13 @@ Partial Class frmLocateExcelData
         Me.ClientSize = New System.Drawing.Size(192, 116)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnImport)
-        Me.Controls.Add(Me.CheckBox1)
+        Me.Controls.Add(Me.chkHeader)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TextBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.MinimizeBox = False
         Me.Name = "frmLocateExcelData"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Excel Import"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -94,7 +95,7 @@ Partial Class frmLocateExcelData
 
     Friend WithEvents TextBox1 As Windows.Forms.TextBox
     Friend WithEvents Label1 As Windows.Forms.Label
-    Friend WithEvents CheckBox1 As Windows.Forms.CheckBox
+    Friend WithEvents chkHeader As Windows.Forms.CheckBox
     Friend WithEvents btnImport As Windows.Forms.Button
     Friend WithEvents btnCancel As Windows.Forms.Button
 End Class

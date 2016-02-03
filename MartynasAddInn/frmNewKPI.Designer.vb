@@ -29,18 +29,19 @@ Partial Class frmNewKPI
         Me.chkBudget = New System.Windows.Forms.CheckBox()
         Me.chkActual = New System.Windows.Forms.CheckBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.chkGlobal = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'txtNewKPI
         '
-        Me.txtNewKPI.Location = New System.Drawing.Point(48, 35)
+        Me.txtNewKPI.Location = New System.Drawing.Point(42, 59)
         Me.txtNewKPI.Name = "txtNewKPI"
         Me.txtNewKPI.Size = New System.Drawing.Size(190, 20)
         Me.txtNewKPI.TabIndex = 0
         '
         'btnAddKPI
         '
-        Me.btnAddKPI.Location = New System.Drawing.Point(92, 72)
+        Me.btnAddKPI.Location = New System.Drawing.Point(86, 96)
         Me.btnAddKPI.Name = "btnAddKPI"
         Me.btnAddKPI.Size = New System.Drawing.Size(75, 23)
         Me.btnAddKPI.TabIndex = 1
@@ -50,7 +51,7 @@ Partial Class frmNewKPI
         'chkForecast
         '
         Me.chkForecast.AutoSize = True
-        Me.chkForecast.Location = New System.Drawing.Point(171, 12)
+        Me.chkForecast.Location = New System.Drawing.Point(165, 36)
         Me.chkForecast.Name = "chkForecast"
         Me.chkForecast.Size = New System.Drawing.Size(67, 17)
         Me.chkForecast.TabIndex = 18
@@ -60,7 +61,7 @@ Partial Class frmNewKPI
         'chkBudget
         '
         Me.chkBudget.AutoSize = True
-        Me.chkBudget.Location = New System.Drawing.Point(92, 12)
+        Me.chkBudget.Location = New System.Drawing.Point(86, 36)
         Me.chkBudget.Name = "chkBudget"
         Me.chkBudget.Size = New System.Drawing.Size(60, 17)
         Me.chkBudget.TabIndex = 17
@@ -70,7 +71,7 @@ Partial Class frmNewKPI
         'chkActual
         '
         Me.chkActual.AutoSize = True
-        Me.chkActual.Location = New System.Drawing.Point(18, 12)
+        Me.chkActual.Location = New System.Drawing.Point(12, 36)
         Me.chkActual.Name = "chkActual"
         Me.chkActual.Size = New System.Drawing.Size(56, 17)
         Me.chkActual.TabIndex = 16
@@ -80,18 +81,31 @@ Partial Class frmNewKPI
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(15, 38)
+        Me.Label1.Location = New System.Drawing.Point(9, 62)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(27, 13)
         Me.Label1.TabIndex = 19
         Me.Label1.Text = "KPI:"
+        '
+        'chkGlobal
+        '
+        Me.chkGlobal.AutoSize = True
+        Me.chkGlobal.Checked = True
+        Me.chkGlobal.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.chkGlobal.Location = New System.Drawing.Point(12, 13)
+        Me.chkGlobal.Name = "chkGlobal"
+        Me.chkGlobal.Size = New System.Drawing.Size(92, 17)
+        Me.chkGlobal.TabIndex = 20
+        Me.chkGlobal.Text = "Global Setting"
+        Me.chkGlobal.UseVisualStyleBackColor = True
         '
         'frmNewKPI
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.ClientSize = New System.Drawing.Size(256, 110)
+        Me.ClientSize = New System.Drawing.Size(252, 132)
+        Me.Controls.Add(Me.chkGlobal)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.chkForecast)
         Me.Controls.Add(Me.chkBudget)
@@ -103,6 +117,7 @@ Partial Class frmNewKPI
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "frmNewKPI"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Create a new KPI"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -115,4 +130,5 @@ Partial Class frmNewKPI
     Friend WithEvents chkBudget As Windows.Forms.CheckBox
     Friend WithEvents chkActual As Windows.Forms.CheckBox
     Friend WithEvents Label1 As Windows.Forms.Label
+    Friend WithEvents chkGlobal As Windows.Forms.CheckBox
 End Class

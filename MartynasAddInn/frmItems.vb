@@ -4,7 +4,8 @@ Imports System.Windows.Forms
 Public Class frmItems
 
     Dim mainChild As frmMain
-    Dim y As frmLocateExcelData = New frmLocateExcelData
+    Dim y As frmLocateExcelData
+    'Dim y As frmLocateExcelData = New frmLocateExcelData
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         Close()
@@ -28,6 +29,7 @@ Public Class frmItems
     End Sub
 
     Private Sub Form6_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.TopMost = True
         Me.Text = frmMain.data
         lbItems.Items.Clear()
         For Each item In frmMain.dimensions.Item(frmMain.data)
@@ -36,7 +38,9 @@ Public Class frmItems
     End Sub
 
     Private Sub btnExcel_Click(sender As Object, e As EventArgs) Handles btnExcel.Click
+        y = New frmLocateExcelData
         AddHandler y.FormClosed, AddressOf y_FormClosed
+        frmMain.importFromExcelClicked = False
         y.Show()
         If False Then
             Dim activeWorksheet As Excel.Worksheet = CType(Globals.ThisAddIn.Application.ActiveSheet, Excel.Worksheet)
@@ -59,7 +63,6 @@ Public Class frmItems
                 lbItems.Items.Add(cell.Value.ToString)
                 frmMain.dimensions.Item(frmMain.data).Add(cell.Value.ToString)
             Next
-            frmMain.dimensionCount.Item(frmMain.data) = vbCrLf & frmMain.data & ": " & frmMain.dimensions.Item(frmMain.data).Count()
 
             'lbItems.Items.Add(("col: " & colNo & "row: " & rowNo).ToString())
             'For i = 1 To FinalRow
@@ -73,10 +76,26 @@ Public Class frmItems
     End Sub
 
     Private Sub y_FormClosed(sender As Object, e As FormClosedEventArgs)
-        For Each cell In y.cellRange
-            lbItems.Items.Add(cell.Value.ToString)
-            'frmMain.dimensions.Item(frmMain.data).Add(cell.Value.ToString)
-        Next
-        'frmMain.dimensionCount.Item(frmMain.data) = vbCrLf & frmMain.data & ": " & frmMain.dimensions.Item(frmMain.data).Count()
+        If frmMain.importFromExcelClicked Then
+            Dim i As Integer
+            If y.chkHeader.Checked = False Then
+                For i = 1 To y.cellRange.Rows.Count
+                    For Each cell In y.cellRange.Cells(i, 1)
+                        lbItems.Items.Add(cell.Value.ToString)
+                        'frmMain.dimensions.Item(frmMain.data).Add(cell.Value.ToString)
+                    Next
+                Next i
+            End If
+            If y.chkHeader.Checked Then
+                For i = 2 To y.cellRange.Rows.Count
+                    For Each cell In y.cellRange.Cells(i, 1)
+                        lbItems.Items.Add(cell.Value.ToString)
+                        'frmMain.dimensions.Item(frmMain.data).Add(cell.Value.ToString)
+                    Next
+                Next i
+            End If
+            'frmMain.dimensionCount.Item(frmMain.data) = vbCrLf & frmMain.data & ": " & frmMain.dimensions.Item(frmMain.data).Count()
+        End If
     End Sub
+
 End Class

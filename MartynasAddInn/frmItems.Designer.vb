@@ -35,6 +35,7 @@ Partial Class frmItems
         '
         'lbItems
         '
+        Me.lbItems.ForeColor = System.Drawing.SystemColors.WindowText
         Me.lbItems.FormattingEnabled = True
         Me.lbItems.Location = New System.Drawing.Point(26, 89)
         Me.lbItems.Name = "lbItems"
@@ -121,6 +122,7 @@ Partial Class frmItems
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "frmItems"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form6"
         Me.ResumeLayout(False)
         Me.PerformLayout()

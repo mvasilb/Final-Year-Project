@@ -2,8 +2,8 @@
 
     Dim WithEvents activeWorksheet As Excel.Worksheet = CType(Globals.ThisAddIn.Application.ActiveSheet, Excel.Worksheet)
     Public cellRange As Excel.Range
-    Dim colRange As Excel.Range
-    Dim rowRange As Excel.Range
+    Public colRange As Excel.Range
+    Public rowRange As Excel.Range
 
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
@@ -15,6 +15,7 @@
     End Sub
 
     Private Sub frmLocateExcelData_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.TopMost = True
         cellRange = Globals.ThisAddIn.Application.Selection
         colRange = cellRange.Columns
         rowRange = cellRange.Rows
@@ -35,6 +36,7 @@
             'frmMain.dimensions.Item(frmMain.data).Add(cell.Value.ToString)
         Next
         'frmMain.dimensionCount.Item(frmMain.data) = vbCrLf & frmMain.data & ": " & frmMain.dimensions.Item(frmMain.data).Count()
+        frmMain.importFromExcelClicked = True
         Me.Close()
     End Sub
 End Class

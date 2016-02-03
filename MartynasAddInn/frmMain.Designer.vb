@@ -25,21 +25,26 @@ Partial Class frmMain
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.refreshCount = New System.Windows.Forms.Button()
-        Me.Label7 = New System.Windows.Forms.Label()
+        Me.btnExcel = New System.Windows.Forms.Button()
+        Me.btnDatabase = New System.Windows.Forms.Button()
+        Me.lbDimensions = New System.Windows.Forms.ListView()
+        Me.myData = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.myItems = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnRemoveDim = New System.Windows.Forms.Button()
         Me.btnAddDim = New System.Windows.Forms.Button()
-        Me.lbDimensions = New System.Windows.Forms.ListBox()
         Me.btnPreviousTab = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtDataName = New System.Windows.Forms.TextBox()
         Me.btnFinish = New System.Windows.Forms.Button()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.cmbSelectedKPI = New System.Windows.Forms.ListView()
+        Me.Name = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Versions = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.chkForecast = New System.Windows.Forms.CheckBox()
         Me.chkBudget = New System.Windows.Forms.CheckBox()
         Me.chkActual = New System.Windows.Forms.CheckBox()
-        Me.cmbSelectedKPI = New System.Windows.Forms.ListBox()
         Me.cmbKPIList = New System.Windows.Forms.ListBox()
         Me.btnNextTab = New System.Windows.Forms.Button()
         Me.btnCreateNewKPI = New System.Windows.Forms.Button()
@@ -62,12 +67,12 @@ Partial Class frmMain
         '
         'TabPage2
         '
-        Me.TabPage2.Controls.Add(Me.refreshCount)
-        Me.TabPage2.Controls.Add(Me.Label7)
+        Me.TabPage2.Controls.Add(Me.btnExcel)
+        Me.TabPage2.Controls.Add(Me.btnDatabase)
+        Me.TabPage2.Controls.Add(Me.lbDimensions)
         Me.TabPage2.Controls.Add(Me.Label3)
         Me.TabPage2.Controls.Add(Me.btnRemoveDim)
         Me.TabPage2.Controls.Add(Me.btnAddDim)
-        Me.TabPage2.Controls.Add(Me.lbDimensions)
         Me.TabPage2.Controls.Add(Me.btnPreviousTab)
         Me.TabPage2.Controls.Add(Me.Label6)
         Me.TabPage2.Controls.Add(Me.txtDataName)
@@ -80,24 +85,42 @@ Partial Class frmMain
         Me.TabPage2.Text = "Dimensions"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
-        'refreshCount
+        'btnExcel
         '
-        Me.refreshCount.Location = New System.Drawing.Point(505, 81)
-        Me.refreshCount.Name = "refreshCount"
-        Me.refreshCount.Size = New System.Drawing.Size(75, 23)
-        Me.refreshCount.TabIndex = 30
-        Me.refreshCount.Text = "Refresh"
-        Me.refreshCount.UseVisualStyleBackColor = True
+        Me.btnExcel.Location = New System.Drawing.Point(334, 224)
+        Me.btnExcel.Name = "btnExcel"
+        Me.btnExcel.Size = New System.Drawing.Size(148, 62)
+        Me.btnExcel.TabIndex = 33
+        Me.btnExcel.Text = "Import from Excel"
+        Me.btnExcel.UseVisualStyleBackColor = True
         '
-        'Label7
+        'btnDatabase
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(350, 83)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(148, 30)
-        Me.Label7.TabIndex = 29
-        Me.Label7.Text = "No of Items for each Data:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " "
+        Me.btnDatabase.Location = New System.Drawing.Point(334, 156)
+        Me.btnDatabase.Name = "btnDatabase"
+        Me.btnDatabase.Size = New System.Drawing.Size(148, 62)
+        Me.btnDatabase.TabIndex = 32
+        Me.btnDatabase.Text = "Import from DB"
+        Me.btnDatabase.UseVisualStyleBackColor = True
+        '
+        'lbDimensions
+        '
+        Me.lbDimensions.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.myData, Me.myItems})
+        Me.lbDimensions.Location = New System.Drawing.Point(18, 107)
+        Me.lbDimensions.Name = "lbDimensions"
+        Me.lbDimensions.Size = New System.Drawing.Size(299, 250)
+        Me.lbDimensions.TabIndex = 31
+        Me.lbDimensions.UseCompatibleStateImageBehavior = False
+        Me.lbDimensions.View = System.Windows.Forms.View.Details
+        '
+        'myData
+        '
+        Me.myData.Text = "Data"
+        Me.myData.Width = 235
+        '
+        'myItems
+        '
+        Me.myItems.Text = "Items"
         '
         'Label3
         '
@@ -111,7 +134,7 @@ Partial Class frmMain
         '
         'btnRemoveDim
         '
-        Me.btnRemoveDim.Location = New System.Drawing.Point(242, 327)
+        Me.btnRemoveDim.Location = New System.Drawing.Point(242, 363)
         Me.btnRemoveDim.Name = "btnRemoveDim"
         Me.btnRemoveDim.Size = New System.Drawing.Size(75, 23)
         Me.btnRemoveDim.TabIndex = 27
@@ -126,14 +149,6 @@ Partial Class frmMain
         Me.btnAddDim.TabIndex = 26
         Me.btnAddDim.Text = "Add"
         Me.btnAddDim.UseVisualStyleBackColor = True
-        '
-        'lbDimensions
-        '
-        Me.lbDimensions.FormattingEnabled = True
-        Me.lbDimensions.Location = New System.Drawing.Point(18, 109)
-        Me.lbDimensions.Name = "lbDimensions"
-        Me.lbDimensions.Size = New System.Drawing.Size(299, 212)
-        Me.lbDimensions.TabIndex = 25
         '
         'btnPreviousTab
         '
@@ -171,10 +186,11 @@ Partial Class frmMain
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.Label8)
+        Me.TabPage1.Controls.Add(Me.cmbSelectedKPI)
         Me.TabPage1.Controls.Add(Me.chkForecast)
         Me.TabPage1.Controls.Add(Me.chkBudget)
         Me.TabPage1.Controls.Add(Me.chkActual)
-        Me.TabPage1.Controls.Add(Me.cmbSelectedKPI)
         Me.TabPage1.Controls.Add(Me.cmbKPIList)
         Me.TabPage1.Controls.Add(Me.btnNextTab)
         Me.TabPage1.Controls.Add(Me.btnCreateNewKPI)
@@ -192,6 +208,37 @@ Partial Class frmMain
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "KPI's"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(333, 61)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(73, 16)
+        Me.Label8.TabIndex = 18
+        Me.Label8.Text = "Versions:"
+        '
+        'cmbSelectedKPI
+        '
+        Me.cmbSelectedKPI.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Name, Me.Versions})
+        Me.cmbSelectedKPI.Location = New System.Drawing.Point(344, 133)
+        Me.cmbSelectedKPI.MultiSelect = False
+        Me.cmbSelectedKPI.Name = "cmbSelectedKPI"
+        Me.cmbSelectedKPI.Size = New System.Drawing.Size(212, 224)
+        Me.cmbSelectedKPI.TabIndex = 17
+        Me.cmbSelectedKPI.UseCompatibleStateImageBehavior = False
+        Me.cmbSelectedKPI.View = System.Windows.Forms.View.Details
+        '
+        'Name
+        '
+        Me.Name.Text = "Name"
+        Me.Name.Width = 134
+        '
+        'Versions
+        '
+        Me.Versions.Text = "Versions"
+        Me.Versions.Width = 74
         '
         'chkForecast
         '
@@ -223,14 +270,6 @@ Partial Class frmMain
         Me.chkActual.Text = "Actual"
         Me.chkActual.UseVisualStyleBackColor = True
         '
-        'cmbSelectedKPI
-        '
-        Me.cmbSelectedKPI.FormattingEnabled = True
-        Me.cmbSelectedKPI.Location = New System.Drawing.Point(344, 132)
-        Me.cmbSelectedKPI.Name = "cmbSelectedKPI"
-        Me.cmbSelectedKPI.Size = New System.Drawing.Size(213, 225)
-        Me.cmbSelectedKPI.TabIndex = 12
-        '
         'cmbKPIList
         '
         Me.cmbKPIList.FormattingEnabled = True
@@ -250,9 +289,9 @@ Partial Class frmMain
         '
         'btnCreateNewKPI
         '
-        Me.btnCreateNewKPI.Location = New System.Drawing.Point(113, 363)
+        Me.btnCreateNewKPI.Location = New System.Drawing.Point(344, 359)
         Me.btnCreateNewKPI.Name = "btnCreateNewKPI"
-        Me.btnCreateNewKPI.Size = New System.Drawing.Size(117, 23)
+        Me.btnCreateNewKPI.Size = New System.Drawing.Size(140, 25)
         Me.btnCreateNewKPI.TabIndex = 9
         Me.btnCreateNewKPI.Text = "Create New KPI"
         Me.btnCreateNewKPI.UseVisualStyleBackColor = True
@@ -350,7 +389,8 @@ Partial Class frmMain
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmMain"
+        'Me.Name = "frmMain"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "BI Model"
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
@@ -367,13 +407,11 @@ Partial Class frmMain
     Friend WithEvents TabPage2 As Windows.Forms.TabPage
     Friend WithEvents btnRemoveDim As Windows.Forms.Button
     Friend WithEvents btnAddDim As Windows.Forms.Button
-    Friend WithEvents lbDimensions As Windows.Forms.ListBox
     Friend WithEvents btnPreviousTab As Windows.Forms.Button
     Friend WithEvents Label6 As Windows.Forms.Label
     Friend WithEvents txtDataName As Windows.Forms.TextBox
     Friend WithEvents btnFinish As Windows.Forms.Button
     Friend WithEvents TabPage1 As Windows.Forms.TabPage
-    Friend WithEvents cmbSelectedKPI As Windows.Forms.ListBox
     Friend WithEvents cmbKPIList As Windows.Forms.ListBox
     Friend WithEvents btnNextTab As Windows.Forms.Button
     Friend WithEvents btnCreateNewKPI As Windows.Forms.Button
@@ -385,10 +423,18 @@ Partial Class frmMain
     Friend WithEvents btnRemoveKPI As Windows.Forms.Button
     Friend WithEvents btnAddKPI As Windows.Forms.Button
     Friend WithEvents TabControl1 As Windows.Forms.TabControl
-    Friend WithEvents chkForecast As Windows.Forms.CheckBox
-    Friend WithEvents chkBudget As Windows.Forms.CheckBox
-    Friend WithEvents chkActual As Windows.Forms.CheckBox
+    'Friend WithEvents chkActual As Windows.Forms.CheckBox
     Friend WithEvents Label3 As Windows.Forms.Label
-    Friend WithEvents Label7 As Windows.Forms.Label
-    Friend WithEvents refreshCount As Windows.Forms.Button
+    Friend WithEvents cmbSelectedKPI As Windows.Forms.ListView
+    Friend WithEvents Name As Windows.Forms.ColumnHeader
+    Friend WithEvents Versions As Windows.Forms.ColumnHeader
+    Public WithEvents chkForecast As Windows.Forms.CheckBox
+    Public WithEvents chkBudget As Windows.Forms.CheckBox
+    Public WithEvents chkActual As Windows.Forms.CheckBox
+    Friend WithEvents Label8 As Windows.Forms.Label
+    Friend WithEvents lbDimensions As Windows.Forms.ListView
+    Friend WithEvents myData As Windows.Forms.ColumnHeader
+    Friend WithEvents myItems As Windows.Forms.ColumnHeader
+    Friend WithEvents btnExcel As Windows.Forms.Button
+    Friend WithEvents btnDatabase As Windows.Forms.Button
 End Class
