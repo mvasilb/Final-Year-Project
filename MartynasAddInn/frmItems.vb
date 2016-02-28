@@ -3,16 +3,17 @@ Imports System.Windows.Forms
 
 Public Class frmItems
 
-    Dim mainChild As frmMain
+    'Dim mainChild As frmMain
     Dim y As frmLocateExcelData
+    Dim openDimension As String = frmMain.data
     'Dim y As frmLocateExcelData = New frmLocateExcelData
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         Close()
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnDatabase.Click
-        Dim x As frmConnectToDatabase = New frmConnectToDatabase
+    Private Sub Button3_Click(sender As Object, e As EventArgs)
+        Dim x As frmConnectToServer = New frmConnectToServer
         x.Show()
     End Sub
 
@@ -20,24 +21,26 @@ Public Class frmItems
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnAddItem.Click
-        lbItems.Items.Add(txtItem.Text)
-    End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnRemoveItem.Click
+        Dim membersToRemove As New HashSet(Of String)
+        If Not frmMain.removeMembers.ContainsKey(openDimension) Then
+            frmMain.removeMembers.Add(openDimension, membersToRemove)
+        End If
+        frmMain.removeMembers.Item(openDimension).Add(lbItems.Text)
         lbItems.Items.Remove(lbItems.Text)
     End Sub
 
     Private Sub Form6_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.TopMost = True
-        Me.Text = frmMain.data
+        Me.Text = openDimension
         lbItems.Items.Clear()
-        For Each item In frmMain.dimensions.Item(frmMain.data)
+        For Each item In frmMain.dimensions.Item(openDimension)
             lbItems.Items.Add(item.ToString)
         Next
     End Sub
 
-    Private Sub btnExcel_Click(sender As Object, e As EventArgs) Handles btnExcel.Click
+    Private Sub btnExcel_Click(sender As Object, e As EventArgs)
         y = New frmLocateExcelData
         AddHandler y.FormClosed, AddressOf y_FormClosed
         frmMain.importFromExcelClicked = False
@@ -61,7 +64,7 @@ Public Class frmItems
             rowNo = rowRange.Count
             For Each cell In cellRange
                 lbItems.Items.Add(cell.Value.ToString)
-                frmMain.dimensions.Item(frmMain.data).Add(cell.Value.ToString)
+                frmMain.dimensions.Item(openDimension).Add(cell.Value.ToString)
             Next
 
             'lbItems.Items.Add(("col: " & colNo & "row: " & rowNo).ToString())

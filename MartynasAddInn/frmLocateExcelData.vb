@@ -1,6 +1,9 @@
 ﻿Public Class frmLocateExcelData
 
-    Dim WithEvents activeWorksheet As Excel.Worksheet = CType(Globals.ThisAddIn.Application.ActiveSheet, Excel.Worksheet)
+    Dim WithEvents activeWorkbook As Excel.Workbook = CType(Globals.ThisAddIn.Application.ActiveWorkbook, Excel.Workbook)
+    Dim WithEvents activeWorksheet As Excel.Worksheet = activeWorkbook.ActiveSheet '= CType(Globals.ThisAddIn.Application.ActiveSheet, Excel.Worksheet)
+    Public wbPath As String = activeWorkbook.FullName
+    Public wsName As String = activeWorksheet.Name
     Public cellRange As Excel.Range
     Public colRange As Excel.Range
     Public rowRange As Excel.Range
@@ -19,7 +22,7 @@
         cellRange = Globals.ThisAddIn.Application.Selection
         colRange = cellRange.Columns
         rowRange = cellRange.Rows
-        TextBox1.Text = cellRange.Address
+        TextBox1.Text = colRange.Address
     End Sub
 
     Private Sub activeWorksheet_SelectionChange(ByVal Target As Excel.Range) Handles activeWorksheet.SelectionChange
@@ -32,9 +35,9 @@
     End Sub
 
     Private Sub btnImport_Click(sender As Object, e As EventArgs) Handles btnImport.Click
-        For Each cell In cellRange
-            'frmMain.dimensions.Item(frmMain.data).Add(cell.Value.ToString)
-        Next
+        'For Each cell In cellRange
+        'frmMain.dimensions.Item(frmMain.data).Add(cell.Value.ToString)
+        'Next
         'frmMain.dimensionCount.Item(frmMain.data) = vbCrLf & frmMain.data & ": " & frmMain.dimensions.Item(frmMain.data).Count()
         frmMain.importFromExcelClicked = True
         Me.Close()

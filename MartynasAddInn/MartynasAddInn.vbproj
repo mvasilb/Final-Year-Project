@@ -35,7 +35,7 @@
     <PublishUrl>D:\FinalYearProjectPublished2\</PublishUrl>
     <InstallUrl />
     <TargetCulture>en</TargetCulture>
-    <ApplicationVersion>1.0.1.4</ApplicationVersion>
+    <ApplicationVersion>1.0.1.15</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>7</UpdateInterval>
@@ -200,10 +200,35 @@
   -->
   <ItemGroup>
     <AppDesigner Include="My Project\" />
+    <Compile Include="frmSelectTable.Designer.vb">
+      <DependentUpon>frmSelectTable.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSelectTable.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SQLControl.vb" />
     <Compile Include="Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
     </Compile>
     <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCSV.Designer.vb">
+      <DependentUpon>frmCSV.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCSV.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelectSheet.Designer.vb">
+      <DependentUpon>frmSelectSheet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSelectSheet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMerge.Designer.vb">
+      <DependentUpon>frmMerge.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMerge.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLocateExcelData.Designer.vb">
@@ -224,10 +249,16 @@
     <Compile Include="frmItems.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmConnectToDatabase.Designer.vb">
-      <DependentUpon>frmConnectToDatabase.vb</DependentUpon>
+    <Compile Include="frmConnectToServer.Designer.vb">
+      <DependentUpon>frmConnectToServer.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmConnectToDatabase.vb">
+    <Compile Include="frmConnectToServer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLocateKPIExcel.Designer.vb">
+      <DependentUpon>frmLocateKPIExcel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLocateKPIExcel.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmVersions.Designer.vb">
@@ -240,6 +271,12 @@
       <DependentUpon>frmNewKPI.vb</DependentUpon>
     </Compile>
     <Compile Include="frmNewKPI.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWriting.Designer.vb">
+      <DependentUpon>frmWriting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmWriting.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="KPIGroupArrayList.vb" />
@@ -262,8 +299,20 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCSV.resx">
+      <DependentUpon>frmCSV.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectSheet.resx">
+      <DependentUpon>frmSelectSheet.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMerge.resx">
+      <DependentUpon>frmMerge.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLocateExcelData.resx">
       <DependentUpon>frmLocateExcelData.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLocateKPIExcel.resx">
+      <DependentUpon>frmLocateKPIExcel.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
@@ -274,14 +323,20 @@
     <EmbeddedResource Include="frmItems.resx">
       <DependentUpon>frmItems.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmConnectToDatabase.resx">
-      <DependentUpon>frmConnectToDatabase.vb</DependentUpon>
+    <EmbeddedResource Include="frmConnectToServer.resx">
+      <DependentUpon>frmConnectToServer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectTable.resx">
+      <DependentUpon>frmSelectTable.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVersions.resx">
       <DependentUpon>frmVersions.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNewKPI.resx">
       <DependentUpon>frmNewKPI.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWriting.resx">
+      <DependentUpon>frmWriting.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ribbon.resx">
       <DependentUpon>Ribbon.vb</DependentUpon>
